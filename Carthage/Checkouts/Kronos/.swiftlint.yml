@@ -1,0 +1,9 @@
+line_length:
+  - 110
+disabled_rules:
+  - variable_name
+  - nesting
+  - opening_brace
+  - valid_docs
+trailing_comma:
+  mandatory_comma: true

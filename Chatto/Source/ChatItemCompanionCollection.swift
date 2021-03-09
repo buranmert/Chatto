@@ -23,6 +23,8 @@
 */
 import Foundation
 
+import Kronos
+
 public struct ChatItemCompanionCollection: Collection {
 
     private let items: [ChatItemCompanion]
@@ -36,6 +38,8 @@ public struct ChatItemCompanionCollection: Collection {
         }
         self.items = items
         self.itemIndexesById = dictionary
+
+        _ = Clock.reset()
     }
 
     public func indexOf(_ uid: String) -> Int? {

@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		26D653F2251043BD007BC13C /* ReplyFeedbackGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D653F1251043BD007BC13C /* ReplyFeedbackGenerator.swift */; };
 		3565429D203DB99300B29DA1 /* ChatLayoutConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3565429C203DB99300B29DA1 /* ChatLayoutConfiguration.swift */; };
+		9E3D5DDE25F7B5F100D4290C /* Kronos.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E3D5DDD25F7B5F100D4290C /* Kronos.xcframework */; };
 		B3B1B0FF1D6B40DF00D1183D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B1B0FE1D6B40DF00D1183D /* Utils.swift */; };
 		C31E919A1BFF4CA300339585 /* BaseChatViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31E91991BFF4CA300339585 /* BaseChatViewControllerTests.swift */; };
 		C321C3961BE78835009803D1 /* CollectionChangesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C321C3951BE78835009803D1 /* CollectionChangesTests.swift */; };
@@ -53,6 +54,7 @@
 		26D653F1251043BD007BC13C /* ReplyFeedbackGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyFeedbackGenerator.swift; sourceTree = "<group>"; };
 		3565429C203DB99300B29DA1 /* ChatLayoutConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLayoutConfiguration.swift; sourceTree = "<group>"; };
 		55E85D821BE390BE001885AD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E3D5DDD25F7B5F100D4290C /* Kronos.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Kronos.xcframework; path = ../Carthage/Build/Kronos.xcframework; sourceTree = "<group>"; };
 		B3B1B0FE1D6B40DF00D1183D /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		C31E91991BFF4CA300339585 /* BaseChatViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseChatViewControllerTests.swift; sourceTree = "<group>"; };
 		C321C3951BE78835009803D1 /* CollectionChangesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionChangesTests.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E3D5DDE25F7B5F100D4290C /* Kronos.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +118,14 @@
 			);
 			path = Tests;
 			sourceTree = SOURCE_ROOT;
+		};
+		9E3D5DDC25F7B5F100D4290C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9E3D5DDD25F7B5F100D4290C /* Kronos.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
 		};
 		C321C3941BE78835009803D1 /* ChatController */ = {
 			isa = PBXGroup;
@@ -151,6 +162,7 @@
 			children = (
 				C32BB7221BE0504D0069EC50 /* Chatto */,
 				C32BB7211BE0504D0069EC50 /* Products */,
+				9E3D5DDC25F7B5F100D4290C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -497,7 +509,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -517,7 +530,11 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.badoo.Chatto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -535,7 +552,11 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.badoo.Chatto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -547,7 +568,11 @@
 			buildSettings = {
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.badoo.ChattoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -559,7 +584,11 @@
 			buildSettings = {
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.badoo.ChattoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
